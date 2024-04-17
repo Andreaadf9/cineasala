@@ -1,0 +1,27 @@
+body{
+    color: black;
+    background-color: #DC5353;
+}
+
+#main-header{
+    display: flex;
+    height: 90px;
+    justify-content: space-between;
+    background-color: #000000;
+}
+.main-menu li{
+    list-style: none;
+    display: inline;
+    padding:0px 20px;
+}
+.logo img{
+    width: 150px;
+   
+
+
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+    
+}
