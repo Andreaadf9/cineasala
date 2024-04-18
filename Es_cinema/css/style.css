@@ -59,3 +59,53 @@ body {
 
 
 /* MAIN */
+
+.carosello{
+    margin-top: 2rem;
+}
+
+.film{
+    text-align: center;
+}
+
+.sliderCarosello{
+    display: flex;
+    align-items: center;
+}
+
+.locandinaCarosello{
+    width: 220px;
+}
+
+.locandinaCarosello img{
+    width: 100%;
+}
+
+.cercaIlFilm{
+    justify-content: center;
+    margin-top: 56px;
+}
+
+
+.right{
+    flex: 2;
+}
+
+.left{
+    width: 270px;
+    text-align: center;
+}
+
+.left img{
+    width: 100%;
+}
+
+.containerFilm{
+    margin: 0 auto;
+    width: 60%;
+    gap: 5rem;
+}
+
+h2{
+    margin: 0px;
+}
