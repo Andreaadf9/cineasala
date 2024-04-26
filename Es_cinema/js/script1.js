@@ -32,7 +32,7 @@ caricamentoDatiCarosello()
 
 // questo a differenza di quello usato sopra 'caso' si aggiorna live automaticamente
 let listaDivFilm = document.getElementsByClassName('film');
-console.log(lista);
+console.log(listaDivFilm);
 
 function stampaFilm() {
     arrayFilm.forEach(film => {
@@ -63,16 +63,24 @@ function stampaFilm() {
     carousel.innerHTML += caroselloFilm;
 
     });
-    listaDivFilm[0].classList.remove('d-none');
+    listaDivFilm[indexDivFilm].classList.remove('d-none');
 }
 
+let indexDivFilm = 0;
 
 function avanti() {
-    
+    listaDivFilm[indexDivFilm].classList.add('d-none');
+    indexDivFilm++;
+    listaDivFilm[indexDivFilm].classList.remove('d-none');
+    if (indexDivFilm >= listaDivFilm.length) {
+        indexDivFilm = 0;
+    }
 }
 
 function indietro() {
-
+    listaDivFilm[indexDivFilm].classList.add('d-none');
+    indexDivFilm--;
+    listaDivFilm[indexDivFilm].classList.remove('d-none');
 }
 
 function cercaFilm() {
