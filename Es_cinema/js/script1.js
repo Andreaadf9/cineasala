@@ -25,12 +25,18 @@ async function caricamentoDatiCarosello() {
         
     }
     stampaFilm();
+    // query selector non è live quindi se lo esegui prima della creazione degli elementi, dopo non vede la node list aggiornata, quindi lo metto qui dentro
+    //let caso = document.querySelectorAll('.film');
 }
 caricamentoDatiCarosello()
 
+// questo a differenza di quello usato sopra 'caso' si aggiorna live automaticamente
+let listaDivFilm = document.getElementsByClassName('film');
+console.log(lista);
+
 function stampaFilm() {
     arrayFilm.forEach(film => {
-        let caroselloFilm = `<div class="film">
+        let caroselloFilm = `<div class="film d-none">
 
         <h2>${film.Title}</h2>
 
@@ -57,6 +63,7 @@ function stampaFilm() {
     carousel.innerHTML += caroselloFilm;
 
     });
+    listaDivFilm[0].classList.remove('d-none');
 }
 
 
