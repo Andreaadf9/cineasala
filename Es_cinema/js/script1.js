@@ -68,7 +68,7 @@ function stampaFilm() {
 
 
 function avanti() {
-
+    
 }
 
 function indietro() {
