@@ -4,6 +4,7 @@ let carousel = document.querySelector('.carosello');
 let btnCerca = document.querySelector('#btnCerca');
 let arrayFilm = [];
 let arrayCarosello = ["The game", "The wolf of wall street", "Avatar"];
+let cercaFilm = document.querySelector('#cercaFilm');
 
 const APIKEY = "4214e970";
 const ENDPOINT = "https://www.omdbapi.com/?";
@@ -36,20 +37,23 @@ console.log(listaDivFilm);
 
 function stampaFilm() {
     arrayFilm.forEach(film => {
+        let arrayAttori = film.Actors.split(', ');
+        let attori = arrayAttori.map(attore => `<a href="https://it.wikipedia.org/wiki/${attore}" target="_blank">${attore}</a>`).join(', ');
+        console.log(arrayAttori);
         let caroselloFilm = `<div class="film d-none">
 
         <h2>${film.Title}</h2>
 
         <div class="sliderCarosello">
-            <i class="fa-solid fa-angle-left"></i>
+            <i class="fa-solid fa-angle-left" id="ciao"></i>
             <div class="locandinaCarosello">
                 <img src="${film.Poster}" alt="">
             </div>
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right" id="ciao1"></i>
         </div>
 
         <div class="attori">
-            <a href="">${film.Actors}</a>
+            ${attori}
         </div>
 
         <div class="infoFilm">
@@ -71,27 +75,44 @@ let indexDivFilm = 0;
 function avanti() {
     listaDivFilm[indexDivFilm].classList.add('d-none');
     indexDivFilm++;
-    listaDivFilm[indexDivFilm].classList.remove('d-none');
     if (indexDivFilm >= listaDivFilm.length) {
         indexDivFilm = 0;
     }
+    listaDivFilm[indexDivFilm].classList.remove('d-none');
 }
 
 function indietro() {
     listaDivFilm[indexDivFilm].classList.add('d-none');
     indexDivFilm--;
+    if (indexDivFilm < 0) {
+        indexDivFilm = listaDivFilm.length-1;
+    }
     listaDivFilm[indexDivFilm].classList.remove('d-none');
 }
 
-function cercaFilm() {
-    
+// event.target mi restituisce l'elemento cliccato. 
+carousel.addEventListener('click', function(event){
+    if (event.target.classList.contains('fa-angle-left')) {
+        indietro();
+    } else if (event.target.classList.contains('fa-angle-right')) {
+        avanti()
+    }
+});
+
+
+
+let titolo = document.querySelector('.left h2');
+let imgCopertina = document.querySelector('.left img');
+let descrizione = document.querySelector('.right p');
+
+
+async function trovaFilm() {
+    let filmCercato = cercaFilm.value;
+    let film = await carosello(filmCercato);
+    titolo.innerHTML = film.Title;
+    cercaFilm.value = '';
+    imgCopertina.setAttribute('src', film.Poster);
+    descrizione.innerHTML = film.Plot;
 }
 
-btnCerca.addEventListener('click', cercaFilm);
-
-
-
-
-
-{/* <a href="">${film.Poster}</a>
-<a href="">${film.Poster}</a> */}
+btnCerca.addEventListener('click', trovaFilm);
