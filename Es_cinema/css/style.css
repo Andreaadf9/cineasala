@@ -71,14 +71,19 @@ body {
 .sliderCarosello{
     display: flex;
     align-items: center;
+    justify-content: center;
+   
 }
 
 .locandinaCarosello{
     width: 220px;
+    height: 350px;
 }
 
 .locandinaCarosello img{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .cercaIlFilm{
@@ -92,15 +97,18 @@ body {
 }
 
 .left{
+    justify-content: center;
     width: 270px;
     text-align: center;
 }
 
 .left img{
     width: 100%;
+
 }
 
 .containerFilm{
+    
     margin: 0 auto;
     width: 60%;
     gap: 5rem;
@@ -108,4 +116,44 @@ body {
 
 h2{
     margin: 0px;
+}
+.border{
+    border: solid;
+    padding: 7px;
+    margin: 0px 10px;
+}
+
+.locandinaCerca{
+    width: 220px;
+    height: 350px;
+}
+
+@media screen and (max-width:768px){
+    .containerFilm{
+        display: block !important;
+       
+    }
+
+    #main-header.is-mobile-open .main-menu {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background: rgba(255,255,255,0.9);
+        /*il quarto valore è l'alpha channel, cioè il livello di trasparenza*/
+    
+        width: 100%;
+    
+        height: 100%;
+    
+        /* height: calc(100% - 55px); */
+        /*sottraggo l'altezza della barra menu all'altezza del menu aperto */
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+
 }

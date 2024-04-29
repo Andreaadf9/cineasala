@@ -45,11 +45,15 @@ function stampaFilm() {
         <h2>${film.Title}</h2>
 
         <div class="sliderCarosello">
-            <i class="fa-solid fa-angle-left" id="ciao"></i>
+          <div class="border">  
+        <i class="fa-solid fa-angle-left" id="ciao"></i>
+            </div>
             <div class="locandinaCarosello">
                 <img src="${film.Poster}" alt="">
             </div>
+            <div class="border"> 
             <i class="fa-solid fa-angle-right" id="ciao1"></i>
+            </div>
         </div>
 
         <div class="attori">
